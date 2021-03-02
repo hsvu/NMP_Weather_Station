@@ -1,4 +1,4 @@
-const weather_output = require("./weather_output.js") 
+import weather_output from "./weather_output";
 
 async function print_weather_data() {
     while (true) {

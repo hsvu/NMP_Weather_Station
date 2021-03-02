@@ -13,7 +13,7 @@
      - wind direction (0 - 360°)
 */
 function generate_weather_data() {
-    data_list = [
+    let data_list = [
         Math.random() * 100, 
         Math.random() * 100, 
         Math.random(), 
@@ -21,9 +21,9 @@ function generate_weather_data() {
         Math.random() * 100, 
         Math.random() * 360
     ]
-    rand_pos = getRandomIntInclusive(0, 5);
-    error_chance = getRandomIntInclusive(1, 10);
-    error_value = getRandomIntInclusive(500, 1000);
+    let rand_pos = getRandomIntInclusive(0, 5);
+    let error_chance = getRandomIntInclusive(1, 10);
+    let error_value = getRandomIntInclusive(500, 1000);
 
     switch(error_chance) {
         case 1:
@@ -39,7 +39,7 @@ function generate_weather_data() {
             data_list[rand_pos] = null;
     }
     
-    data_points = {
+    let data_points = {
         "ambient_temp" : data_list[0],
         "track_temp" : data_list[1],
         "humidity" : data_list[2],
