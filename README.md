@@ -34,5 +34,14 @@ As a bonus you could also create widgets to show things like a live rainfall rad
 </br>
 
 
+## Running the code
+First install the libraries needed by running 
+```bash
+npm install
+```
+You can test the code by running 
+```bash
+npm test
+```
 ## Submission
 Fork the given git repository, and then add all your code and documentation to this repository. You will be working with the advanced cloud project as they are tasked with deploying your app!
