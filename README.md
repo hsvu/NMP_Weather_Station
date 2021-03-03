@@ -6,7 +6,7 @@ On-track weather data is important to collect, as it allows vehicle data to be a
 However, viewing a stream of continuous raw data on a terminal is not very useful. Hence, after the hardware to collect this raw numerical data is set up, the data stream must be processed appropriately and displayed on a frontend. 
 
 ## Task 1 - Backend
-You will be given a module *weather_output.js* which contains a function, *generate_weather_data*, that emulates the data output from a weather station by returning an object with the following data points:
+You will be given a module *weather_output.ts* which contains a function, *generate_weather_data*, that emulates the data output from a weather station by returning an object with the following data points:
 
  - Ambient Temperature
  - Track Temperature
@@ -15,7 +15,7 @@ You will be given a module *weather_output.js* which contains a function, *gener
  - Wind Speed
  - Wind Direction
 
-You must not change *weather_output.js* - instead, import the function into your program and call it in a timed loop to continuously receive data. The emulated data will have errors (see the comment in *weather_output.js*), so some validation of this raw data in your backend is required. Then you must stream this data to a server. This data must then be made available to the user interface.
+You must not change *weather_output.ts* - instead, import the function into your program and call it in a timed loop to continuously receive data. The emulated data will have errors (see the comment in *weather_output.ts*), so some validation of this raw data in your backend is required. Then you must stream this data to a server. This data must then be made available to the user interface.
 
 A skeleton server will be provided written in Typescript / Node.js so you can get used to the Redback tech stack. All these features do not have to be excessively complex or optimised - a simple, functional solution is enough (however feel free to polish things up!).
 
