@@ -1,0 +1,18 @@
+.value {
+  width: 120px;
+  color: var(--color-text);
+}
+
+.value label {
+  display: block;
+  text-align: center;
+  line-height: 1em;
+}
+
+.value .number {
+  font-size: xx-large;
+}
+
+.binIcon {
+  width: 25px;
+}

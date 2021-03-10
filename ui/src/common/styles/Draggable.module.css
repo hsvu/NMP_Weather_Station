@@ -1,0 +1,14 @@
+.draggable {
+  height: 40px;
+  padding: 7px;
+  background-color: var(--color-bg-L2);
+}
+
+.draggable:hover {
+  background-color: var(--color-hover);
+}
+
+/* Removes trashcan background from the default button style */
+.trashcan {
+  background-color: inherit;
+}
