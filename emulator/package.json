@@ -19,5 +19,8 @@
   "homepage": "https://github.com/UNSW-Redback-Racing/NMP_Weather_Station#readme",
   "dependencies": {
     "typescript": "^4.2.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.36"
   }
 }
