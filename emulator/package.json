@@ -4,8 +4,10 @@
   "description": "## Background On-track weather data is important to collect, as it allows vehicle data to be analysed in the context of external environmental variables. For example, determining how much wind velocity impacts the aerodynamics, determining what levels of precipitation cause the car to hydroplane, or how track temperatures affect tyre performance.",
   "main": "build/weather_output_test.js",
   "scripts": {
-    "test": "ts-node weather_output_test.ts",
-    "start": "node ."
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
+    "test": "ts-node weather_output_test.ts"
   },
   "repository": {
     "type": "git",
