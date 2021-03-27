@@ -1,10 +1,10 @@
 import {generate_weather_data} from "./weather_output";
 import dgram from "dgram";
 import TelemetryPacket from "./Telemetry";
-var starting_time = new Date();
+var starting_time = new Date().getTime();
 
 async function print_weather_data() {
-    var ending_time = new Date();
+    var ending_time = new Date().getTime();
     const HOST = "localhost";
     const PORT = 12000;
     const data = generate_weather_data();
@@ -42,9 +42,8 @@ async function print_weather_data() {
                 time: time_difference,
             }
         },
-
     }
-    console.log(data);
+    console.log(packet);
     var buf = Buffer.from(JSON.stringify(packet), 'utf8');
     var client = dgram.createSocket('udp4');
     client.send(buf, 0, buf.length, PORT, HOST, function(err, bytes) {
