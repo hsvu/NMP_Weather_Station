@@ -24,15 +24,13 @@ apiVersion: v1
 kind: Service
 metadata: 
   name: backend-service
-  labels:
-    app: backend-service
 spec:
   selector:
     app: backend
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 8000
+      targetPort: http
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -63,7 +61,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: http
+    targetPort: 80
 ---
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
@@ -76,11 +74,11 @@ spec:
   rules:
   - http:
       paths:
-      - path: /
+      - path: /*
         backend: 
           serviceName: frontend-service
           servicePort: 80
-      - path: /api/streaming
+      - path: /api/*
         backend:
           serviceName: backend-service
           servicePort: 80
