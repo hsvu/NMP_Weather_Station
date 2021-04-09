@@ -1,9 +1,12 @@
 {
-  "name": "NMP_Weather_Station",
+  "name": "weather_station_nmp",
   "version": "1.0.0",
   "description": "## Background On-track weather data is important to collect, as it allows vehicle data to be analysed in the context of external environmental variables. For example, determining how much wind velocity impacts the aerodynamics, determining what levels of precipitation cause the car to hydroplane, or how track temperatures affect tyre performance.",
-  "main": "weather_output.js",
+  "main": "build/weather_output_test.js",
   "scripts": {
+    "build": "tsc",
+    "prestart": "npm run build",
+    "start": "node .",
     "test": "ts-node weather_output_test.ts"
   },
   "repository": {
@@ -17,7 +20,9 @@
     "url": "https://github.com/UNSW-Redback-Racing/NMP_Weather_Station/issues"
   },
   "homepage": "https://github.com/UNSW-Redback-Racing/NMP_Weather_Station#readme",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^14.14.36",
     "typescript": "^4.2.2"
   }
 }
