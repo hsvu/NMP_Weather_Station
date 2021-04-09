@@ -5,9 +5,7 @@
   overflow: auto;
 
   /* The extra 18px removed accounts for the status bar*/
-  height: calc(
-    100vh - var(--options-bar-height)
-  );
+  height: calc(100vh - var(--options-bar-height));
 }
 
 /* Hide scrollbar for Chrome, Safari and Opera */
@@ -17,9 +15,7 @@
 
 @media only screen and (max-width: 1200px) {
   .column_scroll {
-    height: calc(
-      100vh - var(--options-bar-height)
-    );
+    height: calc(100vh - var(--options-bar-height));
   }
 }
 
