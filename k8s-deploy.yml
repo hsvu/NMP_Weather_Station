@@ -2,19 +2,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: car_gateway_service_deployment
+  name: car-gateway-service-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: car_gateway_service
+      app: car-gateway-service
   template:
     metadata:
       labels:
-        app: car_gateway_service
+        app: car-gateway-service
     spec:
       containers:
-        - name: car_gateway_service
+        - name: car-gateway-service
           image: "redbackracing/car_gateway_service"
           ports:
             - name: http
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: car_gateway_service_service
+  name: car-gateway-service-service
 spec:
   selector:
-    app: car_gateway_service
+    app: car-gateway-service
   ports:
     - protocol: TCP
       port: 80
@@ -35,7 +35,7 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ui_deployment
+  name: ui-deployment
 spec:
   selector:
     matchLabels:
@@ -52,9 +52,9 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: ui_service
+  name: ui-service
   labels:
-    app: ui_service
+    app: ui-service
 spec:
   selector:
     app: ui
@@ -63,7 +63,7 @@ spec:
     port: 80
     targetPort: 80
 ---
-apiVersion: networking.k8s.io/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: api
@@ -74,7 +74,10 @@ spec:
   rules:
   - http:
       paths:
-      - path: /*
+      - path: /
         backend: 
-          serviceName: ui_service
-          servicePort: 80
+          service: 
+            name: ui-service
+            port:
+              number: 80
+        pathType: Prefix
