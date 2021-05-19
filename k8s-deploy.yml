@@ -2,20 +2,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata: 
-  name: backend-deployment
+  name: car_gateway_service_deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: backend
+      app: car_gateway_service
   template:
     metadata:
       labels:
-        app: backend
+        app: car_gateway_service
     spec:
       containers:
-        - name: weatherstation-server
-          image: "gcr.io/weather-station-309907/server"
+        - name: car_gateway_service
+          image: "redbackracing/car_gateway_service"
           ports:
             - name: http
               containerPort: 8000
@@ -23,10 +23,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata: 
-  name: backend-service
+  name: car_gateway_service_service
 spec:
   selector:
-    app: backend
+    app: car_gateway_service
   ports:
     - protocol: TCP
       port: 80
@@ -35,29 +35,29 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: frontend-deployment
+  name: ui_deployment
 spec:
   selector:
     matchLabels:
-      app: frontend
+      app: ui
   template:
     metadata:
       labels:
-        app: frontend
+        app: ui
     spec:
       containers:
-        - name: weatherstation-ui
-          image: "gcr.io/weather-station-309907/ui"
+        - name: ui
+          image: "redbackracing/ui"
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: frontend-service
+  name: ui_service
   labels:
-    app: frontend-service
+    app: ui_service
 spec:
   selector:
-    app: frontend
+    app: ui
   ports:
   - protocol: TCP
     port: 80
@@ -76,9 +76,5 @@ spec:
       paths:
       - path: /*
         backend: 
-          serviceName: frontend-service
-          servicePort: 80
-      - path: /api/*
-        backend:
-          serviceName: backend-service
+          serviceName: ui_service
           servicePort: 80
